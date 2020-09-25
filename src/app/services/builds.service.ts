@@ -9,25 +9,25 @@ import { Build } from '../models/build';
 export class BuildsService {
   apiURL = 'https://localhost:44397/api/build';
 
-  constructor(private http: HttpClient) { }
+  constructor(private client: HttpClient) { }
 
   getBuild(id: Number) {
-    return this.http.get<Build>(this.apiURL + '/' + id);
+    return this.client.get<Build>(this.apiURL + '/' + id);
   }
 
   getBuilds() {
-    return this.http.get<Build[]>(this.apiURL);
+    return this.client.get<Build[]>(this.apiURL);
   }
 
   createBuild(build: Build) {
-    return this.http.post<Build>(this.apiURL, build);
+    return this.client.post<Build>(this.apiURL, build);
   }
 
   editBuild(build: Build) {
-    return this.http.put<Build>(this.apiURL + '/' + build.id, build);
+    return this.client.put<Build>(this.apiURL + '/' + build.id, build);
   }
 
   deleteBuild(id: Number) {
-    return this.http.delete(this.apiURL + '/' + id);
+    return this.client.delete(this.apiURL + '/' + id);
   }
 }

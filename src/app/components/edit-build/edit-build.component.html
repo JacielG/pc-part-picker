@@ -1,0 +1,22 @@
+<h2>Edit Build</h2>
+<form>
+    <div class="form-group">
+        <label for="buildName" style="margin-right: 3px;">Build Name</label>
+        <input name="name" type="text" class="from-control" id="buildName" placeholder="Please enter the build's name"
+            [(ngModel)]="build.name">
+
+    </div>
+    <div class="form-group">
+        <label for="buildDescription" style="margin-right: 3px;">Build Description</label>
+        <input name="description" type="text" class="from-control" id="buildDescription"
+            placeholder="Please enter the build's description" [(ngModel)]="build.description">
+    </div>
+    <div class="form-group">
+        <label for="componentControlSelect">Select the component</label>
+        <select name="componentName" id="componentControlSelect" class="form-control" [(ngModel)]="build.componentId">
+            <option *ngFor="let component of components" [value]="component.id">{{ component.name }}</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="editBuild()">Save</button>
+    <button type="submit" class="btn btn-light" (click)="cancel()">Cancel</button>
+</form>
